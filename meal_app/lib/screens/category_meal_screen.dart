@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../dummy_data.dart';
+import 'package:meal_app/widget/meal_item.dart';
 
 class CategoryMealScreen extends StatefulWidget {
 
@@ -25,7 +26,15 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
       appBar: AppBar(title:  Text(categoryTitle.toString())),
       body: ListView.builder(
         itemBuilder:(ctx,index){
-          return Text(category_meal[index].title);
+          return   MealItem(
+            
+            id: category_meal[index].id,
+            imageUrl: category_meal[index].imageUrl,
+            title: category_meal[index].title,
+            duration: category_meal[index].duration,
+            complexity: category_meal[index].complexity,
+            affordability: category_meal[index].affordability,
+          );
         },
         itemCount: category_meal.length,
         
